@@ -1,0 +1,24 @@
+{
+  "name": "seedalpha-coding-challenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nf start",
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ycmjason/seedalpha-coding-challenge.git"
+  },
+  "author": "Jason",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "kue": "^0.11.5"
+  },
+  "devDependencies": {
+    "foreman": "^2.0.0",
+    "mocha": "^3.3.0"
+  }
+}
