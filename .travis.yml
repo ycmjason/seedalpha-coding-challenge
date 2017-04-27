@@ -1,7 +1,14 @@
-services:
-  - mongodb
-  - redis-server
 language: node_js
 node_js:
   - "node"
   - "7"
+
+services:
+  - mongodb
+  - redis-server
+
+install:
+  - npm install
+
+script:
+  - npm test
