@@ -6,9 +6,3 @@ node_js:
 services:
   - mongodb
   - redis-server
-
-install:
-  - npm install
-
-script:
-  - npm test
