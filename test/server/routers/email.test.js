@@ -28,19 +28,22 @@ describe(email_api_endpoint, function(){
     });
   });
 
-  it('#POST -> 200', function(){
+  it('#POST -> 200', function(done){
     request(app)
       .post(email_api_endpoint)
       .set('Content-Type', 'application/json')
       .send(JSON.stringify(test_email))
-      .expect(200);
+      .expect(200, done);
   });
-  it('#GET/PUT/DELETE/PATCH/HEAD -> 404', function(){
-    request(app).get(email_api_endpoint).expect(404);
-    request(app).put(email_api_endpoint).expect(404);
-    request(app).delete(email_api_endpoint).expect(404);
-    request(app).patch(email_api_endpoint).expect(404);
-    request(app).head(email_api_endpoint).expect(404);
+  it('#GET/PUT/DELETE/PATCH/HEAD -> 404', function(done){
+    var count = 0;
+    var wait = () => (++count == 5) && done();
+
+    request(app).get(email_api_endpoint).expect(404, wait);
+    request(app).put(email_api_endpoint).expect(404, wait);
+    request(app).delete(email_api_endpoint).expect(404, wait);
+    request(app).patch(email_api_endpoint).expect(404, wait);
+    request(app).head(email_api_endpoint).expect(404, wait);
   });
 
   it('#Should create a record in the email database', function(done){
