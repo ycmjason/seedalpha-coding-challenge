@@ -14,5 +14,7 @@ describe('createEmail controller', function(){
     createEmail({body: {}});
 
     assert(stub.calledOnce);
+
+    stub.restore();
   });
 });
