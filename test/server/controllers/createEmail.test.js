@@ -1,11 +1,12 @@
+process.env.NODE_ENV = 'test';
+
 var assert = require('assert');
 
 var sinon = require('sinon');
 
-var Email = require('../../lib/models/Email');
-var createEmail = require('../../lib/server/controllers/createEmail');
+var Email = require('../../../lib/models').Email;
+var createEmail = require('../../../lib/server/controllers/createEmail');
 
-process.env.NODE_ENV = 'test';
 
 describe('createEmail controller', function(){
   it('# make sure Email.create is called', function(){
