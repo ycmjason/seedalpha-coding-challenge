@@ -20,8 +20,8 @@ var sentances = [
   'this is toatally ok.',
   'neutral',
   'hi',
-
   'I am sad',
+
   'I hate you',
   'fuck you',
 ];
@@ -65,6 +65,13 @@ describe('aggregate analysis worker controller', function(){
         if(err) throw err;
         var first_hour_analysis = res.filter(a => a.hour==0)[0];
         assert.equal(first_hour_analysis.positive, 4);
+
+        var first_hour_analysis = res.filter(a => a.hour==1)[0];
+        assert.equal(first_hour_analysis.neutral, 3);
+        assert.equal(first_hour_analysis.negative, 1);
+
+        var first_hour_analysis = res.filter(a => a.hour==2)[0];
+        assert.equal(first_hour_analysis.negative, 2);
         done();
       });
     });
