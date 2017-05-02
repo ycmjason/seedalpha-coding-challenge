@@ -7,7 +7,7 @@ var sinon = require('sinon');
 var aggregateAnalysisService = require('../../../lib/server/services/aggregateAnalysis');
 var queue = require('../../../lib/queue');
 
-describe('server/app.js', function(){
+describe('aggregateAnalysisService', function(){
 
   it('# make sure aggregate-analysis job is added to queue every hour', function(){
     var ONE_HOUR = 60 * 60 * 1000;
