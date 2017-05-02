@@ -29,7 +29,7 @@ describe(email_api_endpoint, function(){
     queue.testMode.enter(true);
     /* passthrough worker */
     queue.on('sentiment-analysis', function(args, cb){
-      cb(null, 3);
+      cb(null, 32);
     });
   });
 
