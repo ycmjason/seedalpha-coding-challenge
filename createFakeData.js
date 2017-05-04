@@ -64,8 +64,9 @@ if(process.env.dummy){
   function finished(err){
     if(err) throw err;
     console.log('done adding analyses');
-    Email.find({}, (err, emails) => console.log(emails.map(e => e.timestamp).join('\n')));
-    Analysis.find({}, (err, analyses) => console.log(analyses.join('\n====\n')));
+    var wait_showDB = Wait(2, () => process.exit());
+    Email.find({}).then((emails) => console.log(emails.map(e => e.timestamp).join('\n'))).then(wait_showDB);
+    Analysis.find({}).then((analyses) => console.log(analyses.join('\n====\n'))).then(wait_showDB);
   }
 
   var wait_clearDB = Wait(2, addFakeEmails);
