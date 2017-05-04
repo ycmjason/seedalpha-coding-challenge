@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
+    "build:w": "webpack --watch",
     "build:min": "webpack  --optimize-minimize",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

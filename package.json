@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "start": "nf start",
-    "postinstall": "node createFakeData.js && cd lib/server/public && npm install",
+    "postinstall": "node createFakeData.js && npm run install:frontend",
+    "install:frontend": "cd lib/server/public && npm install",
+    "build:frontend": "cd lib/server/public  && npm run build:min",
+    "clean": "rm -r node_modules lib/server/public/node_modules",
     "test": "mocha --recursive"
   },
   "repository": {
