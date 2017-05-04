@@ -17,7 +17,7 @@ describe('aggregateAnalysisService', function(){
 
     aggregateAnalysisService();
     assert.equal(queue.testMode.jobs.length, 0);
-    clock.tick(ONE_HOUR + 10);
+    clock.tick(24 * ONE_HOUR + 10);
     assert.equal(queue.testMode.jobs.length, 1);
 
     clock.restore();

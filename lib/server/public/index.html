@@ -9,7 +9,53 @@
     <div id="app" v-cloak>
       <div class="container">
         <h1>{{ title }}</h1>
-        <seedalpha-analysis :date="new Date()"></seedalpha-analysis>
+        <div class="row">
+
+          <div class="six columns">
+            <label>Date From</label>
+            <div class="row">
+              <div class="four columns">
+                <select class="u-full-width" @input="dateFrom.setDate($event.target.value) && updateDates()" v-model="dateFromDefaultDate">
+                  <option v-for="date in 31">{{ date }}</option>
+                </select>
+              </div>
+              <div class="four columns">
+                <select class="u-full-width" @input="dateFrom.setMonth($event.target.value) && updateDates()" v-model="dateFromDefaultMonth">
+                  <option v-for="month in 12" :value="month-1">{{ monthName(month-1) }}</option>
+                </select>
+              </div>
+              <div class="four columns">
+                <select class="u-full-width" @input="dateFrom.setFullYear($event.target.value) && updateDates()">
+                  <option>2017</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="six columns">
+            <label>Date To</label>
+            <div class="row">
+              <div class="four columns">
+                <select class="u-full-width" @input="dateTo.setDate($event.target.value) && updateDates()" v-model="dateToDefaultDate">
+                  <option v-for="date in 31">{{ date }}</option>
+                </select>
+              </div>
+              <div class="four columns">
+                <select class="u-full-width" @input="dateTo.setMonth($event.target.value) && updateDates()" v-model="dateToDefaultMonth">
+                    <option v-for="month in 12" :value="month-1">{{ monthName(month-1) }}</option>
+                </select>
+              </div>
+              <div class="four columns">
+                <select class="u-full-width" @input="dateTo.setFullYear($event.target.value) && updateDates()">
+                  <option>2017</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <seedalpha-analysis v-for="date in dates" :date="date"></seedalpha-analysis>
       </div>
     </div>
     <script src="./node_modules/vue/dist/vue.min.js"></script>

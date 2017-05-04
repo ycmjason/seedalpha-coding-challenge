@@ -60,7 +60,7 @@ describe('aggregate analysis worker controller', function(){
 
     clock.tick(24 * ONE_HOUR);
 
-    aggregateAnalysis(null, () => {
+    aggregateAnalysis({}, () => {
       Analysis.find({}, function(err, res){
         if(err) throw err;
         var first_hour_analysis = res.filter(a => a.hour==0)[0];
