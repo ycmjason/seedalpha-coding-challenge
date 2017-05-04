@@ -14,7 +14,7 @@ var Wait = require('../../../lib/utils/Wait');
 var test_email = {
   subject: 'test',
   from: 'mary@yahhho.com',
-  to: 'jason@goolle.com',
+  recipient: 'jason@goolle.com',
   'body-plain': 'test',
   'body-html': 'test',
   'stripped-html': 'test',
@@ -84,6 +84,7 @@ describe(email_api_endpoint, function(){
       Object.keys(expect).forEach((k) => {
         var k2 = k;
         if(k=='Date') k2 = 'timestamp';
+        if(k=='recipient') k2 = 'to';
         assert.deepEqual(actual[k2], expect[k])
       });
     };
