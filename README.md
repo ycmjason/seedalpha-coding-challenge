@@ -16,7 +16,7 @@ This app is composed by three parts:
 			- record email to database
 		- GET /api/analysis?date=[date]
 			- serves hourly analysis from database of the date
-			- [24 records would be returned if analysis exists](24-hours)
+			- [24 records would be returned if analysis exists](#24-hours)
 	- add job `aggregate-analysis` to queue every [24 hours](#24-hours)
 2. worker 
 	- listen to `sentiment-analysis` jobs from the queue
@@ -28,8 +28,8 @@ This app is composed by three parts:
 	- expose limited functionality of Kue
 
 ## Live server
-Production: https://seedalpha-coding-challenge.herokuapp.com
-With dummy data: https://seedalpha-coding-challenge-dum.herokuapp.com
+- Production: https://seedalpha-coding-challenge.herokuapp.com
+- With dummy data: https://seedalpha-coding-challenge-dum.herokuapp.com
 
 (note: it might take some time to [wake the dyno](https://devcenter.heroku.com/articles/free-dyno-hours#dyno-sleeping).)
 
@@ -45,10 +45,10 @@ Make sure:
 - `npm install` is done in development mode
 
 ```
-#install dependencies of both backend and frontend
+# install dependencies of both backend and frontend
 > npm install       
 
-// then, transpile and bundle the scripts
+# then, transpile and bundle the scripts
 > npm run build:frontend  
 ```
 
@@ -240,12 +240,12 @@ This is quite self explanatory. The test specifications for each component are l
 - I should have really made the worker to aggregate the results of the current hour
 - Now the analysis is done every 24 hours which is a little bit useless I guess since it is not real time.
 
-[back to components](#Components)
+[back to components](#components)
 
 ### tests for frontend regret
 - Since the UX/design of the frontend is not in the scope of this challenge, I became lazy writting tests for this. 
 
-[back to test for frontend](#test-for-frontend)
+[back to tests for frontend](#tests-for-frontend)
 
 ## Author
 Jason Yu (me@ycmjason.com)
