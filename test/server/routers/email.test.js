@@ -19,7 +19,7 @@ var test_email = {
   'body-html': 'test',
   'stripped-html': 'test',
   'stripped-text': 'test' + Date.now(),
-  timestamp: new Date(),
+  Date: new Date(),
 };
 
 var email_api_endpoint = '/api/email';
@@ -82,7 +82,9 @@ describe(email_api_endpoint, function(){
   it('#Should create a record in the email database', function(done){
     var assert_email = (actual, expect) => {
       Object.keys(expect).forEach((k) => {
-          assert.deepEqual(actual[k], expect[k])
+        var k2 = k;
+        if(k=='Date') k2 = 'timestamp';
+        assert.deepEqual(actual[k2], expect[k])
       });
     };
 
