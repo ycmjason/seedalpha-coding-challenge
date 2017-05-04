@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title>Seedalpha coding challenge</title>
+
+    <link rel="stylesheet" href="./node_modules/skeleton-css/css/normalize.css">
+    <link rel="stylesheet" href="./node_modules/skeleton-css/css/skeleton.css">
+  </head>
+  <body>
+    <div id="app" v-cloak>
+      <div class="container">
+        <h1>{{ title }}</h1>
+        <seedalpha-analysis :date="new Date()"></seedalpha-analysis>
+      </div>
+    </div>
+    <script src="./node_modules/vue/dist/vue.min.js"></script>
+    <script src="./dist/bundle.js"></script>
+    
+  </body>
+</html>
